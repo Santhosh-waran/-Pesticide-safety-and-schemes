@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spray Safe, Farm Smart — Pesticide Precautions & Government Scheme Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#166534;      /* Deep Green */
+    --secondary:#22C55E;    /* Fresh Green */
+    --lime:#84CC16;         /* Lime Green - Agriculture */
+    --blue:#2563EB;         /* Technology */
+    --navy:#1E3A8A;         /* Government */
+    --gold:#F59E0B;         /* Highlight */
+    --emerald:#10B981;      /* Success */
+    --cream:#F8FAF0;        /* Background */
+    --white:#FFFFFF;
+    --text:#172B1B;         /* Dark Green text */
+    --muted: rgba(23,43,27,0.62);
+    --line: rgba(23,43,27,0.10);
+    --shadow: 0 18px 40px -18px rgba(22,101,52,0.25);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6; overflow-x:hidden;}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:700; letter-spacing:-0.01em;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 28px;}
+  img,svg{display:block; max-width:100%;}
+
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .reveal.d1{transition-delay:.08s;} .reveal.d2{transition-delay:.16s;} .reveal.d3{transition-delay:.24s;}
+
+  /* ===== TOPBAR ===== */
+  .topbar{position:sticky; top:0; z-index:50; background:rgba(248,250,240,0.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:72px;}
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:700; font-size:19px; color:var(--primary);}
+  .brand .dot{width:10px; height:10px; border-radius:50%; background:var(--gold);}
+  .nav{display:flex; gap:30px; font-size:14px; font-weight:500;}
+  .nav a{opacity:.75; transition:opacity .25s;}
+  .nav a:hover{opacity:1; color:var(--primary);}
+  .top-cta{background:var(--primary); color:var(--white); padding:10px 20px; border-radius:30px; font-size:13.5px; font-weight:600; transition:transform .25s, background .25s;}
+  .top-cta:hover{background:var(--navy); transform:translateY(-1px);}
+  @media (max-width:760px){ .nav{display:none;} }
+
+  /* ===== HERO ===== */
+  .hero-shell{padding:26px 0 0;}
+  .hero-banner{
+    position:relative; border-radius:28px; overflow:hidden; min-height:360px;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(245,158,11,0.4), transparent 42%),
+      radial-gradient(circle at 88% 78%, rgba(37,99,235,0.28), transparent 42%),
+      linear-gradient(125deg, #1B7A40 0%, #166534 45%, #0E4023 100%);
+    display:flex; align-items:center; justify-content:center; padding:64px 32px;
+  }
+  .hero-banner .field-lines{position:absolute; inset:0; opacity:.16; background-image:repeating-linear-gradient(100deg, transparent 0 34px, rgba(255,255,255,0.5) 34px 36px); animation:driftLines 26s linear infinite;}
+  @keyframes driftLines{ from{background-position-x:0;} to{background-position-x:600px;} }
+  .hero-banner .droplet{position:absolute; border-radius:50% 50% 50% 0; background:rgba(245,158,11,0.9); transform:rotate(45deg); animation:fall linear infinite; opacity:0;}
+  @keyframes fall{ 0%{transform:translateY(-20px) rotate(45deg); opacity:0;} 15%{opacity:.9;} 100%{transform:translateY(270px) rotate(45deg); opacity:0;} }
+  .hero-banner .drone{position:absolute; top:44px; right:12%; width:70px; opacity:.9; animation:hover 4.2s ease-in-out infinite;}
+  @keyframes hover{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+  .hero-copy{position:relative; z-index:2; text-align:center; max-width:660px;}
+  .hero-copy .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:18px;}
+  .hero-copy .eyebrow::before{content:"●"; font-size:7px;}
+  .hero-copy h1{color:var(--white); font-size:clamp(30px,5vw,50px); line-height:1.08;}
+  .hero-copy p{color:rgba(255,255,255,0.85); margin-top:16px; font-size:16px; max-width:540px; margin-left:auto; margin-right:auto;}
+
+  .stat-row{max-width:1020px; margin:-46px auto 0; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; position:relative; z-index:3; padding:0 28px;}
+  .stat-card{background:var(--white); border-radius:18px; padding:22px 18px; box-shadow:var(--shadow); transition:transform .3s ease;}
+  .stat-card:hover{transform:translateY(-6px);}
+  .stat-card .num{font-family:'Fraunces',serif; font-weight:800; font-size:27px;}
+  .stat-card.c-secondary .num{color:var(--secondary);}
+  .stat-card.c-navy{background:var(--navy); color:var(--white);}
+  .stat-card.c-navy .num{color:var(--gold);}
+  .stat-card.c-lime .num{color:var(--lime);}
+  .stat-card.c-emerald .num{color:var(--emerald);}
+  .stat-card .lbl{font-size:12.5px; font-weight:700; margin-top:4px;}
+  .stat-card .sub{font-size:11.5px; color:var(--muted); margin-top:6px; line-height:1.45;}
+  .stat-card.c-navy .sub{color:rgba(255,255,255,0.72);}
+  @media (max-width:760px){ .stat-row{grid-template-columns:repeat(2,1fr); margin-top:-30px;} }
+
+  section{padding:96px 0 0;}
+  .section-head{max-width:640px; margin:0 auto 46px; text-align:center;}
+  .section-head .tag{font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; font-weight:700; margin-bottom:12px; display:inline-flex; align-items:center; gap:6px;}
+  .tag.t-secondary{color:var(--secondary);} .tag.t-blue{color:var(--blue);} .tag.t-navy{color:var(--navy);} .tag.t-gold{color:var(--gold);}
+  .section-head h2{font-size:clamp(26px,3.6vw,38px); color:var(--primary);}
+  .section-head p{margin-top:12px; color:var(--muted); font-size:15.5px;}
+
+  /* ===== PRECAUTION IMAGE GRID (6 illustrated tiles) ===== */
+  .precaution-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .p-tile{border-radius:20px; padding:20px; min-height:190px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; transition:transform .3s ease;}
+  .p-tile:hover{transform:translateY(-6px);}
+  .p-tile .glyph{position:absolute; top:16px; left:16px; font-size:28px;}
+  .p-tile .cap{background:rgba(255,255,255,0.95); border-radius:12px; padding:12px 14px; box-shadow:var(--shadow);}
+  .p-tile .cap b{font-size:13.5px; color:var(--text); display:block;}
+  .p-tile .cap span{font-size:11.5px; color:var(--muted);}
+  .p-tile.t1{background:linear-gradient(160deg,#2E8B4E,var(--primary));}
+  .p-tile.t2{background:linear-gradient(160deg,#F6C463,var(--gold));}
+  .p-tile.t3{background:linear-gradient(160deg,#4C8CF0,var(--blue));}
+  .p-tile.t4{background:linear-gradient(160deg,#9FE070,var(--lime));}
+  .p-tile.t5{background:linear-gradient(160deg,#2ED89B,var(--emerald));}
+  .p-tile.t6{background:linear-gradient(160deg,#3E60C0,var(--navy));}
+  @media (max-width:820px){ .precaution-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .precaution-grid{grid-template-columns:1fr;} }
+
+  /* ===== TECHNOLOGY STRIP (blue) ===== */
+  .tech-strip{background:var(--blue); border-radius:24px; padding:44px; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; color:var(--white); position:relative; overflow:hidden;}
+  .tech-strip::before{content:""; position:absolute; left:-50px; bottom:-70px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.08);}
+  .tech-visual{border-radius:18px; min-height:220px; background:linear-gradient(160deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02)); position:relative; display:flex; align-items:center; justify-content:center;}
+  .tech-visual .ring{position:absolute; width:150px; height:150px; border:1.5px dashed rgba(255,255,255,0.4); border-radius:50%; animation:spin 14s linear infinite;}
+  @keyframes spin{ to{transform:rotate(360deg);} }
+  .tech-visual .drone-ic{font-size:54px; position:relative; z-index:2; animation:hover 3.6s ease-in-out infinite;}
+  .tech-copy h2{color:var(--white); font-size:clamp(22px,3vw,28px); margin-bottom:12px;}
+  .tech-copy p{color:rgba(255,255,255,0.85); font-size:14.5px; margin-bottom:16px;}
+  .tech-list{display:flex; flex-direction:column; gap:10px;}
+  .tech-list div{display:flex; gap:10px; align-items:flex-start; font-size:13.5px;}
+  .tech-list .check{width:20px; height:20px; border-radius:50%; background:var(--emerald); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; margin-top:1px;}
+  @media (max-width:760px){ .tech-strip{grid-template-columns:1fr; padding:30px;} }
+
+  /* ===== GOVERNMENT SHOWCASE (navy) ===== */
+  .showcase{background:var(--navy); border-radius:28px; padding:52px; display:grid; grid-template-columns:0.95fr 1.05fr; gap:44px; align-items:center; position:relative; overflow:hidden; color:var(--white);}
+  .showcase::before{content:""; position:absolute; right:-60px; top:-60px; width:220px; height:220px; border-radius:50%; background:rgba(245,158,11,0.18);}
+  .showcase-visual{border-radius:20px; min-height:300px; position:relative; overflow:hidden; background:linear-gradient(160deg,#274B9E,#152B63); display:flex; align-items:flex-end;}
+  .showcase-visual .sun{position:absolute; top:30px; right:30px; width:56px; height:56px; border-radius:50%; background:radial-gradient(circle,#FDE7A8,var(--gold)); box-shadow:0 0 36px 8px rgba(245,158,11,0.4);}
+  .showcase-visual .rows{position:absolute; left:0; right:0; bottom:0; height:55%; background:repeating-linear-gradient(200deg, rgba(255,255,255,0.07) 0 10px, transparent 10px 22px);}
+  .showcase-visual .caption{position:relative; z-index:2; margin:20px; background:rgba(255,255,255,0.96); border-radius:14px; padding:14px 18px; display:flex; align-items:center; gap:10px; box-shadow:var(--shadow);}
+  .showcase-visual .caption .pip{width:36px; height:36px; border-radius:50%; background:var(--navy); display:flex; align-items:center; justify-content:center;}
+  .showcase-visual .caption b{font-size:13.5px; color:var(--navy);}
+  .showcase-visual .caption span{display:block; font-size:11px; color:var(--muted);}
+  .showcase-copy .tag{color:var(--gold);}
+  .showcase-copy h2{color:var(--white); font-size:clamp(24px,3vw,32px); margin:10px 0 12px;}
+  .showcase-copy > p{color:rgba(255,255,255,0.78); font-size:15px; max-width:420px; margin-bottom:22px;}
+  .scheme-list{display:flex; flex-direction:column; gap:16px;}
+  .scheme-row{display:flex; gap:14px; align-items:flex-start; background:var(--white); border-radius:14px; padding:14px 16px; transition:transform .25s; color:var(--text);}
+  .scheme-row:hover{transform:translateX(6px);}
+  .scheme-row .ic{width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:16px; color:var(--white); font-weight:800; font-family:'Fraunces',serif;}
+  .scheme-row.r1 .ic{background:var(--secondary);}
+  .scheme-row.r2 .ic{background:var(--navy);}
+  .scheme-row.r3 .ic{background:var(--gold);}
+  .scheme-row b{font-size:14.5px; color:var(--navy); display:block;}
+  .scheme-row .pct{font-size:12px; color:var(--gold); font-weight:700; background:none;}
+  .scheme-row p{font-size:13px; color:var(--muted); margin-top:2px;}
+  @media (max-width:820px){ .showcase{grid-template-columns:1fr; padding:34px;} }
+
+  /* ===== ACCORDION ===== */
+  .accordion{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:12px;}
+  .acc-item{background:var(--white); border:1px solid var(--line); border-radius:16px; overflow:hidden; transition:background .3s ease, border-color .3s ease;}
+  .acc-item.open{background:#EAFBF1; border-color:var(--emerald);}
+  .acc-head{display:flex; align-items:center; justify-content:space-between; padding:20px 24px; cursor:pointer; gap:16px;}
+  .acc-head .left{display:flex; align-items:center; gap:14px;}
+  .acc-head .step-chip{width:30px; height:30px; border-radius:50%; background:var(--primary); color:var(--gold); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:700; font-size:13px; flex-shrink:0;}
+  .acc-head h3{font-size:15.5px; font-weight:600; font-family:'Inter',sans-serif; color:var(--text);}
+  .acc-item.open .acc-head h3{color:var(--primary);}
+  .acc-toggle{width:26px; height:26px; border-radius:50%; background:var(--cream); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--primary); transition:transform .35s ease;}
+  .acc-item.open .acc-toggle{transform:rotate(135deg); background:var(--emerald); color:var(--white);}
+  .acc-body{max-height:0; overflow:hidden; transition:max-height .4s ease;}
+  .acc-item.open .acc-body{max-height:220px;}
+  .acc-body-inner{padding:0 24px 22px 68px; font-size:14px; color:var(--muted); max-width:560px;}
+  .acc-body-inner .docs{margin-top:8px; font-size:12.5px; color:var(--blue); font-weight:600;}
+
+  /* ===== CTA ===== */
+  .portal-cta{margin:70px auto 0; max-width:1020px; background:linear-gradient(120deg,var(--primary),#0E4023); border-radius:24px; padding:40px 44px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; position:relative; overflow:hidden;}
+  .portal-cta::after{content:""; position:absolute; right:-40px; bottom:-60px; width:180px; height:180px; border-radius:50%; border:1px solid rgba(255,255,255,0.15);}
+  .portal-cta h3{color:var(--white); font-size:20px;}
+  .portal-cta p{color:rgba(255,255,255,0.75); font-size:13.5px; margin-top:6px;}
+  .btn{background:var(--gold); color:#3D2600; font-weight:700; padding:14px 26px; border-radius:30px; font-size:14px; white-space:nowrap; transition:transform .25s ease, background .25s ease; display:inline-block;}
+  .btn:hover{background:#FFC24D; transform:translateY(-2px);}
+
+  footer{margin-top:90px; background:#0E4023; color:rgba(255,255,255,0.6); padding:36px 0; font-size:13px; text-align:center;}
+  footer strong{color:var(--white);}
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span>AgriSafe</div>
+      <nav class="nav">
+        <a href="#precautions">Precautions</a>
+        <a href="#technology">Technology</a>
+        <a href="#schemes">Schemes</a>
+        <a href="#apply">How to Apply</a>
+      </nav>
+      <a class="top-cta" href="#apply">Get Started</a>
+    </div>
+  </div>
+
+  <div class="hero-shell wrap">
+    <div class="hero-banner">
+      <div class="field-lines"></div>
+      <div class="droplet" style="left:12%; width:10px; height:10px; animation-duration:3.4s; animation-delay:.2s;"></div>
+      <div class="droplet" style="left:28%; width:7px; height:7px; animation-duration:2.6s; animation-delay:1s;"></div>
+      <div class="droplet" style="left:52%; width:12px; height:12px; animation-duration:3.9s; animation-delay:.6s;"></div>
+      <div class="droplet" style="left:68%; width:8px; height:8px; animation-duration:3s; animation-delay:1.6s;"></div>
+      <div class="droplet" style="left:83%; width:9px; height:9px; animation-duration:3.5s; animation-delay:.3s;"></div>
+      <div class="hero-copy">
+        <span class="eyebrow">Smart Farming Training Platform</span>
+        <h1>Spray Safe. Apply Smart. Farm Sustainably.</h1>
+        <p>Precise pesticide application protects your crop, your health, and your soil — and government subsidies now make safer, drone-based spraying affordable.</p>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card c-secondary reveal">
+        <div class="num" data-count="75">0</div>
+        <div class="lbl">% Max SMAM Subsidy</div>
+        <div class="sub">For FPOs & farmer groups</div>
+      </div>
+      <div class="stat-card c-navy reveal d1">
+        <div class="num" data-count="80">0</div>
+        <div class="lbl">% Namo Drone Didi</div>
+        <div class="sub">Government subsidy for Women SHGs</div>
+      </div>
+      <div class="stat-card c-lime reveal d2">
+        <div class="num" data-count="30">0</div>
+        <div class="lbl">% Chemical Reduction</div>
+        <div class="sub">With precision spraying</div>
+      </div>
+      <div class="stat-card c-emerald reveal d3">
+        <div class="num" data-count="6">0</div>
+        <div class="lbl">Core Precautions</div>
+        <div class="sub">Every sprayer must follow</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="precautions">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag t-secondary">● Main Focus</span>
+        <h2>Pesticide Spraying — Precautions to Follow</h2>
+        <p>Six illustrated checkpoints every sprayer should run through before, during, and after application.</p>
+      </div>
+
+      <div class="precaution-grid">
+        <div class="p-tile t1 reveal">
+          <span class="glyph">⚖️</span>
+          <div class="cap"><b>Right Dosage</b><span>Match chemical & quantity to the crop and pest</span></div>
+        </div>
+        <div class="p-tile t2 reveal d1">
+          <span class="glyph">🧤</span>
+          <div class="cap"><b>Wear PPE</b><span>Gloves, mask, goggles, full-sleeve clothing</span></div>
+        </div>
+        <div class="p-tile t3 reveal d2">
+          <span class="glyph">🌬️</span>
+          <div class="cap"><b>Right Timing</b><span>Early morning/evening, low wind, no rain forecast</span></div>
+        </div>
+        <div class="p-tile t4 reveal">
+          <span class="glyph">💧</span>
+          <div class="cap"><b>Buffer Zones</b><span>Keep distance from water, hives & grazing animals</span></div>
+        </div>
+        <div class="p-tile t5 reveal d1">
+          <span class="glyph">🔒</span>
+          <div class="cap"><b>Safe Storage</b><span>Labelled containers, locked, cool & dry</span></div>
+        </div>
+        <div class="p-tile t6 reveal d2">
+          <span class="glyph">♻️</span>
+          <div class="cap"><b>Responsible Disposal</b><span>Triple-rinse, no open burning or drains</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="technology">
+    <div class="wrap">
+      <div class="tech-strip reveal">
+        <div class="tech-visual">
+          <div class="ring"></div>
+          <div class="drone-ic">🚁</div>
+        </div>
+        <div class="tech-copy">
+          <span class="tag" style="color:var(--gold);">● Technology</span>
+          <h2>Why Drone Spraying Is the Safer Upgrade</h2>
+          <p>Precision drones remove the farm worker from direct chemical contact entirely, while covering more ground with less waste.</p>
+          <div class="tech-list">
+            <div><span class="check">✓</span> Up to 90% water savings vs. manual spraying</div>
+            <div><span class="check">✓</span> ~30% lower chemical usage through targeted application</div>
+            <div><span class="check">✓</span> Zero direct chemical exposure for the operator</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="schemes">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag t-navy">● Government Support</span>
+        <h2>Schemes That Fund Safer Spraying</h2>
+        <p>Central schemes subsidise the shift from manual to precision drone spraying.</p>
+      </div>
+
+      <div class="showcase reveal">
+        <div class="showcase-visual">
+          <div class="sun"></div>
+          <div class="rows"></div>
+          <div class="caption">
+            <div class="pip">🏛️</div>
+            <div><b>Central & State Support</b><span>₹1,261 Cr outlay under Namo Drone Didi alone</span></div>
+          </div>
+        </div>
+
+        <div class="showcase-copy">
+          <span class="tag">Our Scheme Picks</span>
+          <h2>Top Schemes for Spraying Support</h2>
+          <p>Click through the official portals to check current eligibility, caps, and your state's top-up rates.</p>
+          <div class="scheme-list">
+            <div class="scheme-row r1">
+              <div class="ic">S</div>
+              <div><b>SMAM <span class="pct">40–75% subsidy</span></b><p>Individual farmers, FPOs, Custom Hiring Centres & KVKs.</p></div>
+            </div>
+            <div class="scheme-row r2">
+              <div class="ic">D</div>
+              <div><b>Namo Drone Didi <span class="pct">Up to 80% subsidy</span></b><p>Women Self-Help Groups, capped near ₹8 lakh, 3% interest subvention on balance.</p></div>
+            </div>
+            <div class="scheme-row r3">
+              <div class="ic">R</div>
+              <div><b>State Portals <span class="pct">Varies by state</span></b><p>e.g. Gujarat i-Khedut — check local top-ups on your state agriculture site.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag t-gold">● Step by Step</span>
+        <h2>How to Apply for a Spraying Subsidy</h2>
+        <p>Tap each step to expand — the same broad sequence applies across SMAM and Namo Drone Didi.</p>
+      </div>
+
+      <div class="accordion reveal">
+        <div class="acc-item open">
+          <div class="acc-head"><div class="left"><div class="step-chip">1</div><h3>Choose the right scheme</h3></div><div class="acc-toggle">+</div></div>
+          <div class="acc-body"><div class="acc-body-inner">Decide between SMAM (individual/FPO/CHC route) or Namo Drone Didi (Women SHG route), or check your state's own top-up scheme.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><div class="left"><div class="step-chip">2</div><h3>Gather your documents</h3></div><div class="acc-toggle">+</div></div>
+          <div class="acc-body"><div class="acc-body-inner">Prepare clear digital copies before starting the online form.
+            <div class="docs">Land records · Aadhaar/ID · Bank passbook · FPO/SHG registration · Pilot certificate</div>
+          </div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><div class="left"><div class="step-chip">3</div><h3>Get a manufacturer quotation</h3></div><div class="acc-toggle">+</div></div>
+          <div class="acc-body"><div class="acc-body-inner">Obtain a formal quotation from a DGCA-approved agricultural drone manufacturer — this is mandatory for the application.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><div class="left"><div class="step-chip">4</div><h3>Submit the application online</h3></div><div class="acc-toggle">+</div></div>
+          <div class="acc-body"><div class="acc-body-inner">Apply through the official portal for your chosen scheme, upload all documents and the quotation, and submit for review.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><div class="left"><div class="step-chip">5</div><h3>Field inspection</h3></div><div class="acc-toggle">+</div></div>
+          <div class="acc-body"><div class="acc-body-inner">A district agriculture officer may visit to verify your land, operation, or facility before final approval.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><div class="left"><div class="step-chip">6</div><h3>Approval and disbursement</h3></div><div class="acc-toggle">+</div></div>
+          <div class="acc-body"><div class="acc-body-inner">Once approved, the subsidy is paid to the manufacturer or reimbursed via Direct Benefit Transfer, typically within 15–30 days of inspection.</div></div>
+        </div>
+      </div>
+
+      <div class="portal-cta reveal">
+        <div>
+          <h3>Apply for SMAM online</h3>
+          <p>Official Sub-Mission on Agricultural Mechanization portal</p>
+        </div>
+        <a class="btn" href="https://agrimachinery.nic.in" target="_blank" rel="noopener">agrimachinery.nic.in →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      Part of the <strong>Smart Agriculture Virtual Training Platform</strong> — safety-first pesticide practices, backed by government support.
+    </div>
+  </footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const counters = document.querySelectorAll('[data-count]');
+  const cio = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const el = e.target, target = +el.dataset.count;
+        let cur = 0; const step = Math.max(1, Math.round(target/40));
+        const t = setInterval(()=>{
+          cur += step;
+          if(cur >= target){ cur = target; clearInterval(t); }
+          el.textContent = cur;
+        }, 25);
+        cio.unobserve(el);
+      }
+    });
+  }, {threshold:.4});
+  counters.forEach(el=>cio.observe(el));
+
+  document.querySelectorAll('.acc-item').forEach(item=>{
+    item.querySelector('.acc-head').addEventListener('click', ()=>{
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.acc-item').forEach(i=>i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
